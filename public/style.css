@@ -139,3 +139,27 @@ button {
   display: flex;
   gap: 1.5rem;
 }
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.signup-form > input {
+  margin-bottom: 0.5rem;
+}
+
+.signup-form > .cancel-submit-buttons {
+  margin-top: 0.375rem;
+}
+
+.cancel-submit-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.cancel-button {
+  background-color: var(--color-button-bg-secondary);
+  color: var(--color-button-text);
+}

@@ -1,0 +1,25 @@
+<% const pageName = 'Sign up'; %>
+<%- include('../partials/layout-start', { pageName }) %>
+<%- include('../partials/header', { pageName }) %>
+
+<form action="/sign-up" method="post" class="signup-form">
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username" />
+
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" />
+
+  <label for="password-confirmation">Confirm password</label>
+  <input
+    type="password"
+    name="passwordConfirmation"
+    id="password-confirmation"
+  />
+
+  <div class="cancel-submit-buttons">
+    <a href="/" class="cancel-button button">Cancel</a>
+    <button type="submit">Sign up</button>
+  </div>
+</form>
+
+<%- include('../partials/layout-end') %>
