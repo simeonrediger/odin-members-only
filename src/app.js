@@ -8,6 +8,8 @@ const app = express();
 app.set('views', path.join(import.meta.dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(import.meta.dirname, '../public')));
+
 app.use('/', forumRouter);
 
 export default app;
