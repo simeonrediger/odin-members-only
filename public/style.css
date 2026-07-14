@@ -146,6 +146,12 @@ button {
   align-items: start;
 }
 
+label:has(+ :required)::after {
+  content: '*';
+  color: var(--color-required);
+  margin-inline-start: 0.1875rem;
+}
+
 .signup-form > input {
   margin-bottom: 0.5rem;
 }
