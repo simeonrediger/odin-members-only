@@ -8,17 +8,27 @@
     type="text"
     name="username"
     id="username"
+    required
+    minlength="<%= MIN_USERNAME_LENGTH %>"
+    maxlength="<%= MAX_USERNAME_LENGTH %>"
     value="<%= locals.fields?.username %>"
   />
 
   <label for="password">Password</label>
-  <input type="password" name="password" id="password" />
+  <input
+    type="password"
+    name="password"
+    id="password"
+    required
+    minlength="<%= MIN_PASSWORD_LENGTH %>"
+  />
 
   <label for="password-confirmation">Confirm password</label>
   <input
     type="password"
     name="passwordConfirmation"
     id="password-confirmation"
+    required
   />
 
   <%- include('../partials/form-errors') %>

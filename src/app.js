@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'node:path';
 
+import assignLocals from './middleware/assign-locals.js';
 import forumRouter from './routes/forum.router.js';
 import authRouter from './routes/auth.router.js';
 
@@ -11,6 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(import.meta.dirname, '../public')));
 app.use(express.urlencoded());
+app.use(assignLocals);
 
 app.use('/', forumRouter);
 app.use('/', authRouter);
