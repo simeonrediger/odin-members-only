@@ -1,5 +1,6 @@
 import { matchedData, validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
+
 import db from '../db/queries.js';
 
 export function getSignup(req, res) {
