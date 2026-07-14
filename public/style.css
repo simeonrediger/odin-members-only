@@ -163,3 +163,17 @@ button {
   background-color: var(--color-button-bg-secondary);
   color: var(--color-button-text);
 }
+
+.errors {
+  color: var(--color-error);
+  list-style-type: disc;
+  margin-block: 0.75rem;
+}
+
+.errors:focus {
+  outline: none;
+}
+
+.errors > li {
+  margin-inline-start: 1.125rem;
+}

@@ -10,6 +10,7 @@ app.set('views', path.join(import.meta.dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(import.meta.dirname, '../public')));
+app.use(express.urlencoded());
 
 app.use('/', forumRouter);
 app.use('/', authRouter);
