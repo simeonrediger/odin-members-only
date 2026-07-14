@@ -5,13 +5,11 @@ export function getSignup(req, res) {
 }
 
 export function registerUser(req, res) {
-  const validFields = matchedData(req, { locations: ['body'] });
+  const { username, password } = matchedData(req, { locations: ['body'] });
   const errors = getErrorMessages(req);
 
   if (errors.length > 0) {
-    const { username } = validFields;
-    const fields = { username };
-    res.status(400).render('signup', { fields, errors });
+    res.status(400).render('signup', { fields: { username }, errors });
   }
 }
 
