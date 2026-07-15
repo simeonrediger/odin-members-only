@@ -21,7 +21,7 @@ export function getSignup(req, res) {
   res.render('signup');
 }
 
-export async function registerUser(req, res) {
+export async function registerUser(req, res, next) {
   const { username, displayName, password } = matchedData(req, {
     locations: ['body'],
   });
@@ -34,8 +34,15 @@ export async function registerUser(req, res) {
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
-  await db.users.create({ username, displayName, passwordHash });
-  res.redirect('/');
+  const user = await db.users.create({ username, displayName, passwordHash });
+
+  req.login(user, error => {
+    if (error) {
+      return next(error);
+    }
+
+    res.redirect('/');
+  });
 }
 
 function getErrorMessages(req) {

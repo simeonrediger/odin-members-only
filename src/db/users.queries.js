@@ -25,13 +25,18 @@ export async function findByUsername(username) {
 }
 
 export async function create({ username, displayName, passwordHash }) {
-  await pool.query(
+  const {
+    rows: [user],
+  } = await pool.query(
     `
     INSERT INTO users
       (username, display_name, password_hash)
     VALUES
       ($1, $2, $3)
+    RETURNING *
     `,
     [username, displayName, passwordHash],
   );
+
+  return user;
 }
