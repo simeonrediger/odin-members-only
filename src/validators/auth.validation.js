@@ -5,6 +5,7 @@ import {
   MAX_USERNAME_LENGTH,
   MIN_PASSWORD_LENGTH,
 } from '../domains/constants.js';
+import db from '../db/queries.js';
 
 const RANGE_SEPARATOR = '\u2013';
 
@@ -14,7 +15,8 @@ export const validateUser = [
     .isLength({ min: MIN_USERNAME_LENGTH, max: MAX_USERNAME_LENGTH })
     .withMessage(
       `Username must be ${MIN_USERNAME_LENGTH}${RANGE_SEPARATOR}${MAX_USERNAME_LENGTH} characters`,
-    ),
+    )
+    .custom(isUniqueUsername),
   body('password')
     .isStrongPassword({
       minLength: MIN_PASSWORD_LENGTH,
@@ -29,6 +31,16 @@ export const validateUser = [
     .custom(matchesPasswordConfirmation)
     .withMessage('Passwords must match'),
 ];
+
+async function isUniqueUsername(username) {
+  const matchingUsers = await db.users.findByUsername(username);
+
+  if (matchingUsers.length === 0) {
+    return true;
+  }
+
+  throw new Error(`Username "${username.toLowerCase()}" is already taken`);
+}
 
 function matchesPasswordConfirmation(password, { req }) {
   return password === req.body.passwordConfirmation;

@@ -12,6 +12,7 @@ export default async function reset(client) {
 }
 
 async function deleteAll(client) {
+  await client.query('DROP INDEX IF EXISTS users_username_lower_idx');
   await client.query('DROP TABLE IF EXISTS users');
 }
 
@@ -25,5 +26,10 @@ async function createUsersTable(client) {
       ),
       password_hash text NOT NULL
     )
+    `);
+
+  await client.query(`
+    CREATE UNIQUE INDEX users_username_lower_idx
+    ON users (lower(username));
   `);
 }
