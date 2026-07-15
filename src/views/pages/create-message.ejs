@@ -9,6 +9,7 @@
     required
     maxlength="<%= MAX_TITLE_LENGTH %>"
     placeholder="Title"
+    value="<%= locals.fields?.title %>"
   >
 
   <textarea
@@ -18,7 +19,7 @@
     required
     maxlength="<%= MAX_MESSAGE_LENGTH %>"
     placeholder="Say something..."
-  ></textarea>
+  ><%= locals.fields?.message %></textarea>
 
   <%- include('../partials/form-errors') %>
 
