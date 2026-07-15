@@ -40,6 +40,5 @@ export async function registerUser(req, res) {
 
 function getErrorMessages(req) {
   const errors = validationResult(req).array();
-  const messages = errors.map(error => error.msg);
-  return messages;
+  return errors.map(error => error.msg);
 }
