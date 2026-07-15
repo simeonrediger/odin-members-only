@@ -5,6 +5,8 @@ import * as authValidation from '../validators/auth.validation.js';
 
 const authRouter = Router();
 
+authRouter.get('/log-in', authController.getLogin);
+
 authRouter
   .route('/sign-up')
   .get(authController.getSignup)

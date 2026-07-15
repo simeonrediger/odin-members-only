@@ -1,0 +1,18 @@
+<% const pageName = 'Log in'; %>
+<%- include('../partials/layout-start', { pageName }) %>
+<%- include('../partials/header', { pageName }) %>
+
+<form action="/log-in" method="post" class="login-form">
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username" required />
+
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" required />
+
+  <div class="cancel-submit-buttons">
+    <a href="/" class="cancel-button button">Cancel</a>
+    <button type="submit">Log in</button>
+  </div>
+</form>
+
+<%- include('../partials/layout-end') %>
