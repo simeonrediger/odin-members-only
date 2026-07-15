@@ -118,9 +118,14 @@ select {
   cursor: not-allowed;
 }
 
-button {
+button,
+.button {
   background-color: var(--color-button-bg-primary);
   color: var(--color-button-text);
+}
+
+.button {
+  display: inline-block;
 }
 
 .button:hover {
