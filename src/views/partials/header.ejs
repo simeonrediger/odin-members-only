@@ -3,6 +3,7 @@
   <nav>
     <ul class="navbar-list">
       <% if (currentUser) { %>
+        <li><a href="/log-out">Log out</a></li>
       <% } else { %>
         <li><a href="/sign-up">Sign up</a></li>
         <li><a href="/log-in">Log in</a></li>

@@ -17,6 +17,8 @@ authRouter
     }),
   );
 
+authRouter.get('/log-out', authController.logOut);
+
 authRouter
   .route('/sign-up')
   .get(authController.getSignup)

@@ -7,6 +7,16 @@ export function getLogin(req, res) {
   res.render('login');
 }
 
+export function logOut(req, res, next) {
+  req.logout(error => {
+    if (error) {
+      return next(error);
+    }
+
+    res.redirect('/');
+  });
+}
+
 export function getSignup(req, res) {
   res.render('signup');
 }
