@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 app.use('/', forumRouter);
 app.use('/', authRouter);
 
+app.use(errorController.handleNotFoundError);
 app.use(errorController.handleServerError);
 
 export default app;
