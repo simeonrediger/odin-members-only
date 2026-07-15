@@ -3,6 +3,14 @@
 <%- include('../partials/header', { pageName }) %>
 
 <form action="/message" method="post" class="standard-form">
+  <input
+    name="title"
+    aria-label="Title"
+    required
+    maxlength="<%= MAX_TITLE_LENGTH %>"
+    placeholder="Title"
+  >
+
   <textarea
     name="message"
     class="message-input"
