@@ -30,6 +30,6 @@ export const validateUser = [
     .withMessage('Passwords must match'),
 ];
 
-function matchesPasswordConfirmation(value, { req }) {
-  return value === req.body.passwordConfirmation;
+function matchesPasswordConfirmation(password, { req }) {
+  return password === req.body.passwordConfirmation;
 }
