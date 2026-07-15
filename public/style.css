@@ -152,18 +152,17 @@ button,
   gap: 1.5rem;
 }
 
-.signup-form,
-.login-form {
+.standard-form {
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
-:is(.signup-form, .login-form) > input {
+.standard-form > input {
   margin-bottom: 0.5rem;
 }
 
-:is(.signup-form, .login-form) > .cancel-submit-buttons {
+.standard-form > .cancel-submit-buttons {
   margin-top: 0.375rem;
 }
 
