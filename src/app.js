@@ -9,6 +9,7 @@ import configurePassport from './auth/passport.config.js';
 import assignLocals from './middleware/assign-locals.js';
 import forumRouter from './routes/forum.router.js';
 import authRouter from './routes/auth.router.js';
+import * as errorController from './controllers/error.controller.js';
 
 const app = express();
 
@@ -46,5 +47,7 @@ app.use((req, res, next) => {
 
 app.use('/', forumRouter);
 app.use('/', authRouter);
+
+app.use(errorController.handleServerError);
 
 export default app;

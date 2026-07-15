@@ -2,7 +2,7 @@
   <h1><%= pageName %></h1>
   <nav>
     <ul class="navbar-list">
-      <% if (currentUser) { %>
+      <% if (locals.currentUser) { %>
         <li><a href="/log-out">Log out</a></li>
       <% } else { %>
         <li><a href="/sign-up">Sign up</a></li>
