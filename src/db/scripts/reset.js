@@ -13,7 +13,7 @@ export default async function reset(client) {
 
 async function deleteAll(client) {
   await client.query('DROP INDEX IF EXISTS users_username_lower_idx');
-  await client.query('DROP TABLE IF EXISTS users');
+  await client.query('DROP TABLE IF EXISTS session, users');
 }
 
 async function createUsersTable(client) {
