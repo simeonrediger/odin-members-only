@@ -4,10 +4,22 @@
 
 <form action="/log-in" method="post" class="login-form">
   <label for="username">Username</label>
-  <input type="text" name="username" id="username" required />
+  <input
+    type="text"
+    name="username"
+    id="username"
+    autocomplete="username"
+    required
+  />
 
   <label for="password">Password</label>
-  <input type="password" name="password" id="password" required />
+  <input
+    type="password"
+    name="password"
+    id="password"
+    autocomplete="current-password"
+    required
+  />
 
   <div class="cancel-submit-buttons">
     <a href="/" class="cancel-button button">Cancel</a>
