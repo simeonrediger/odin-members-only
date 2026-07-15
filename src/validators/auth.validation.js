@@ -7,9 +7,8 @@ import {
   MAX_DISPLAY_NAME_LENGTH,
   MIN_PASSWORD_LENGTH,
 } from '../domains/constants.js';
+import { RANGE_SEPARATOR } from '../utils/characters.js';
 import db from '../db/queries.js';
-
-const RANGE_SEPARATOR = '\u2013';
 
 export const validateUser = [
   body('username')
