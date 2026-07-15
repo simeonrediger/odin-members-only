@@ -161,6 +161,11 @@ label:has(+ :required)::after {
   margin-inline-start: 0.1875rem;
 }
 
+.field-annotation {
+  color: var(--color-text-secondary);
+  font-size: 0.875em;
+}
+
 .cancel-submit-buttons {
   display: flex;
   gap: 1rem;

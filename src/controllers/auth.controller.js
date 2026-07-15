@@ -12,15 +12,19 @@ export function getSignup(req, res) {
 }
 
 export async function registerUser(req, res) {
-  const { username, password } = matchedData(req, { locations: ['body'] });
+  const { username, displayName, password } = matchedData(req, {
+    locations: ['body'],
+  });
   const errors = getErrorMessages(req);
 
   if (errors.length > 0) {
-    return res.status(400).render('signup', { fields: { username }, errors });
+    return res
+      .status(400)
+      .render('signup', { fields: { username, displayName }, errors });
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
-  await db.users.create({ username, passwordHash });
+  await db.users.create({ username, displayName, passwordHash });
   res.redirect('/');
 }
 

@@ -24,6 +24,7 @@ async function createUsersTable(client) {
         length(username) >= ${MIN_USERNAME_LENGTH}
         AND length(username) <= ${MAX_USERNAME_LENGTH}
       ),
+      display_name text,
       password_hash text NOT NULL
     )
     `);

@@ -15,6 +15,19 @@
     value="<%= locals.fields?.username %>"
   />
 
+  <label for="display-name">
+    Display name
+    <span class="field-annotation">(optional)</span>
+  </label>
+  <input
+    type="text"
+    name="displayName"
+    id="display-name"
+    minlength="<%= MIN_DISPLAY_NAME_LENGTH %>"
+    maxlength="<%= MAX_DISPLAY_NAME_LENGTH %>"
+    value="<%= locals.fields?.displayName %>"
+  />
+
   <label for="password">Password</label>
   <input
     type="password"

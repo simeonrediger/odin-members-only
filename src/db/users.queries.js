@@ -12,14 +12,14 @@ export async function findByUsername(username) {
   return rows;
 }
 
-export async function create({ username, passwordHash }) {
+export async function create({ username, displayName, passwordHash }) {
   await pool.query(
     `
     INSERT INTO users
-      (username, password_hash)
+      (username, display_name, password_hash)
     VALUES
-      ($1, $2)
+      ($1, $2, $3)
   `,
-    [username, passwordHash],
+    [username, displayName, passwordHash],
   );
 }

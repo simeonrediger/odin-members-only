@@ -3,6 +3,8 @@ import { body, matchedData } from 'express-validator';
 import {
   MIN_USERNAME_LENGTH,
   MAX_USERNAME_LENGTH,
+  MIN_DISPLAY_NAME_LENGTH,
+  MAX_DISPLAY_NAME_LENGTH,
   MIN_PASSWORD_LENGTH,
 } from '../domains/constants.js';
 import db from '../db/queries.js';
@@ -17,6 +19,13 @@ export const validateUser = [
       `Username must be ${MIN_USERNAME_LENGTH}${RANGE_SEPARATOR}${MAX_USERNAME_LENGTH} characters`,
     )
     .custom(isUniqueUsername),
+  body('displayName')
+    .trim()
+    .optional({ values: 'falsy' })
+    .isLength({ min: MIN_DISPLAY_NAME_LENGTH, max: MAX_DISPLAY_NAME_LENGTH })
+    .withMessage(
+      `Display name must be ${MIN_DISPLAY_NAME_LENGTH}${RANGE_SEPARATOR}${MAX_DISPLAY_NAME_LENGTH} characters`,
+    ),
   body('password')
     .isStrongPassword({
       minLength: MIN_PASSWORD_LENGTH,
