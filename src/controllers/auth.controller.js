@@ -1,6 +1,7 @@
-import { matchedData, validationResult } from 'express-validator';
+import { matchedData } from 'express-validator';
 import bcrypt from 'bcryptjs';
 
+import { getErrorMessages } from '../validators/validation-utils.js';
 import db from '../db/queries.js';
 
 export function getLogin(req, res) {
@@ -43,9 +44,4 @@ export async function registerUser(req, res, next) {
 
     res.redirect('/');
   });
-}
-
-function getErrorMessages(req) {
-  const errors = validationResult(req).array();
-  return errors.map(error => error.msg);
 }
