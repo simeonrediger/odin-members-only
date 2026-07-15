@@ -3,13 +3,16 @@
 <%- include('../partials/header', { pageName }) %>
 
 <main>
-  <p>
+  <div class="flex-gap-normal">
     <% if (currentUser) { %>
-      Logged in as <%= currentUser.displayName ?? currentUser.username %>.
+      <a href="message" class="button">+ New message</a>
+      <p>
+        Logged in as <%= currentUser.displayName ?? currentUser.username %>.
+      </p>
     <% } else { %>
-      You are not logged in.
+      <p>You are not logged in.</p>
     <% } %>
-  </p>
+  </div>
 </main>
 
 <%- include('../partials/layout-end') %>

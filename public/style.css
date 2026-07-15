@@ -132,6 +132,13 @@ button,
   text-decoration: none;
 }
 
+/* Utility */
+.flex-gap-normal {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
 /* App */
 .header {
   display: flex;
