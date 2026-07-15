@@ -2,6 +2,14 @@
 <%- include('../partials/layout-start', { pageName }) %>
 <%- include('../partials/header', { pageName }) %>
 
-<main></main>
+<main>
+  <p>
+    <% if (currentUser) { %>
+      Logged in as <%= currentUser.displayName ?? currentUser.username %>.
+    <% } else { %>
+      You are not logged in.
+    <% } %>
+  </p>
+</main>
 
 <%- include('../partials/layout-end') %>
