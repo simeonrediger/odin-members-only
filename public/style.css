@@ -152,6 +152,12 @@ button,
   gap: 1.5rem;
 }
 
+.message-input {
+  min-height: 6.4375rem;
+  resize: vertical;
+  width: 100%;
+}
+
 .standard-form {
   display: flex;
   flex-direction: column;

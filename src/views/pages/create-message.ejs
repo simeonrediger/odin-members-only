@@ -1,0 +1,24 @@
+<% const pageName = 'New message'; %>
+<%- include('../partials/layout-start', { pageName }) %>
+<%- include('../partials/header', { pageName }) %>
+
+<form action="/message" method="post" class="standard-form">
+  <textarea
+    name="message"
+    class="message-input"
+    aria-label="Message"
+    required
+    minlength="<%= MIN_MESSAGE_LENGTH %>"
+    maxlength="<%= MAX_MESSAGE_LENGTH %>"
+    placeholder="Say something..."
+  ></textarea>
+
+  <%- include('../partials/form-errors') %>
+
+  <div class="cancel-submit-buttons">
+    <a href="/" class="cancel-button button">Cancel</a>
+    <button type="submit">Post message</button>
+  </div>
+</form>
+
+<%- include('../partials/layout-end') %>
