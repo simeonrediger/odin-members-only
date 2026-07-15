@@ -21,6 +21,8 @@
     required
   />
 
+  <%- include('../partials/form-errors', { errors: messages }) %>
+
   <div class="cancel-submit-buttons">
     <a href="/" class="cancel-button button">Cancel</a>
     <button type="submit">Log in</button>

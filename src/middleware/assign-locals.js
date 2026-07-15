@@ -8,6 +8,7 @@ import {
 
 export default function assignLocals(req, res, next) {
   Object.assign(res.locals, locals);
+  res.locals.messages = req.session.messages;
   next();
 }
 
