@@ -7,7 +7,10 @@
             <h2 class="message-title"><%= message.title %></h2>
             <p class="message-info">
               by <%= message.author.display_name ?? message.author.username %>
-              on <span data-time="<%= message.time.toISOString() %>"></span>
+              on <span
+                data-time="<%= message.time.toISOString() %>"
+                class="message-time"
+              ></span>
             </p>
           </div>
           <p class="message-content"><%= message.content %></p>

@@ -193,6 +193,10 @@ button,
   font-style: italic;
 }
 
+.message-time {
+  font-family: monospace;
+}
+
 .message-content {
   border-end-start-radius: 1rem;
   border-end-end-radius: 1rem;
