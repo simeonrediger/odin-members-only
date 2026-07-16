@@ -6,7 +6,7 @@ export function ensureAuthenticated(req, res, next) {
   next();
 }
 
-export function ensureNoRole(req, res, next) {
+export function ensureUserHasNoRole(req, res, next) {
   if (req.user.role) {
     return res.redirect('/');
   }
