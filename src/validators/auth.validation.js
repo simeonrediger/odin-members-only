@@ -45,7 +45,8 @@ export const validateUser = [
 export const validateMember = [
   body('answer')
     .equals(process.env.MEMBER_SECRET)
-    .withMessage(answer => `'${answer}' is truthy`),
+    .withMessage(answer => `'${answer}' is truthy`)
+    .custom(giveHintIfClose),
 ];
 
 async function isUniqueUsername(username) {
@@ -60,4 +61,18 @@ async function isUniqueUsername(username) {
 
 function matchesPasswordConfirmation(password, { req }) {
   return password === req.body.passwordConfirmation;
+}
+
+function giveHintIfClose(answer) {
+  const answerIsClose =
+    ["''", '""', '``'].includes(answer) ||
+    answer.toLowerCase().includes('empty string');
+
+  if (!answerIsClose) {
+    return true;
+  }
+
+  throw new Error(
+    "Close! Here's a hint: Your answer will be interpreted as a string.",
+  );
 }
