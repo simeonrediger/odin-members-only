@@ -1,0 +1,20 @@
+<% if (messages?.length > 0) { %>
+  <ul class="message-list">
+    <% messages.forEach(message => { %>
+      <li>
+        <div class="message">
+          <div class="message-heading">
+            <h2 class="message-title"><%= message.title %></h2>
+            <p class="message-info">
+              by <%= message.author.display_name ?? message.author.username %>
+              on <%= message.time %>
+            </p>
+          </div>
+          <p class="message-content"><%= message.content %></p>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p class="no-messages-message">No messages yet</p>
+<% } %>

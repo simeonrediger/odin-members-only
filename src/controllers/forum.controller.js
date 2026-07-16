@@ -3,8 +3,9 @@ import { matchedData } from 'express-validator';
 import { getErrorMessages } from '../validators/validation-utils.js';
 import db from '../db/queries.js';
 
-export function getForum(req, res) {
-  res.render('forum');
+export async function getForum(req, res) {
+  const messages = await db.messages.find({ includeAuthor: true });
+  res.render('forum', { messages });
 }
 
 export function getMessageForm(req, res) {

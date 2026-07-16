@@ -55,7 +55,9 @@ svg {
 html {
   --black: #000;
   --dark-gray-15: #080808;
+  --dark-gray-13: #181818;
   --dark-gray-11: #282828;
+  --dark-gray-10: #333;
   --dark-gray-8: #444;
   --gray: #888;
   --light-gray-6: #bbb;
@@ -78,6 +80,10 @@ html {
 
   --color-required: var(--pale-light-red);
   --color-error: var(--pale-light-red);
+
+  --color-message-border: var(--dark-gray-10);
+  --color-message-heading-bg: var(--dark-gray-10);
+  --color-message-content-bg: var(--dark-gray-13);
 }
 
 /* Base */
@@ -151,6 +157,46 @@ button,
 .navbar-list {
   display: flex;
   gap: 1.5rem;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  background-color: var(--color-message-content-bg);
+  border-radius: 1rem;
+  border: 8px solid var(--color-message-border);
+}
+
+.message-list,
+.no-messages-message {
+  margin-block: 1rem;
+}
+
+.message-heading {
+  background-color: var(--color-message-heading-bg);
+}
+
+.message-heading,
+.message-content {
+  padding: 0.5rem 0.75rem;
+}
+
+.message-title {
+  font-size: 1.25rem;
+}
+
+.message-info {
+  font-size: 0.9375em;
+  font-style: italic;
+}
+
+.message-content {
+  border-end-start-radius: 1rem;
+  border-end-end-radius: 1rem;
 }
 
 .title-input {
