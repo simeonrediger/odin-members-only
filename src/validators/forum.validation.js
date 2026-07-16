@@ -10,7 +10,7 @@ export const validateMessage = [
     .isLength({ max: MAX_TITLE_LENGTH })
     .withMessage(`Title must not exceed ${MAX_TITLE_LENGTH} characters`),
 
-  body('message')
+  body('content')
     .trim()
     .notEmpty()
     .withMessage('Message is required')

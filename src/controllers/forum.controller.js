@@ -12,9 +12,9 @@ export async function createMessage(req, res) {
   const errors = getErrorMessages(req);
 
   if (errors.length > 0) {
-    const { title, message } = req.body;
+    const { title, content } = req.body;
     return res
       .status(400)
-      .render('create-message', { fields: { title, message }, errors });
+      .render('create-message', { fields: { title, content }, errors });
   }
 }

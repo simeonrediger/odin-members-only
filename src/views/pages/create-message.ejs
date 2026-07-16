@@ -13,13 +13,13 @@
   >
 
   <textarea
-    name="message"
+    name="content"
     class="message-input"
     aria-label="Message"
     required
     maxlength="<%= MAX_MESSAGE_LENGTH %>"
     placeholder="Say something..."
-  ><%= locals.fields?.message %></textarea>
+  ><%= locals.fields?.content %></textarea>
 
   <%- include('../partials/form-errors') %>
 
