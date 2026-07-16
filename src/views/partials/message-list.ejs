@@ -1,4 +1,4 @@
-<% if (messages?.length > 0) { %>
+<% if (locals.messages?.length > 0) { %>
   <ul class="message-list">
     <% messages.forEach(message => { %>
       <li><%- include('message', { message }) %></li>
