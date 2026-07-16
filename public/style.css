@@ -189,10 +189,6 @@ button,
   font-size: 1.25rem;
 }
 
-.message-info {
-  font-style: italic;
-}
-
 .message-time {
   font-family: monospace;
 }
