@@ -45,3 +45,7 @@ export async function registerUser(req, res, next) {
     res.redirect('/');
   });
 }
+
+export function getMemberForm(req, res) {
+  res.render('member');
+}

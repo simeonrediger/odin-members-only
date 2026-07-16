@@ -1,0 +1,20 @@
+<% const pageName = 'Become a member'; %>
+<%- include('../partials/layout-start', { pageName }) %>
+<%- include('../partials/header', { pageName }) %>
+
+<form action="/member" method="post" class="standard-form">
+  <p class="member-form-question-context">
+    In JavaScript, there are 6 falsy values, including <code>false</code>,
+    <code>null</code>, <code>undefined</code>, <code>NaN</code>, and
+    <code>0</code>.
+  </p>
+  <label for="answer">What is the other falsy value?</label>
+  <input type="text" name="answer" id="answer" />
+
+  <div class="cancel-submit-buttons">
+    <a href="/" class="cancel-button button">Cancel</a>
+    <button type="submit">Submit answer</button>
+  </div>
+</form>
+
+<%- include('../partials/layout-end') %>

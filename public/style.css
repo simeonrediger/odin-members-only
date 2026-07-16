@@ -77,6 +77,7 @@ html {
   --color-button-bg-primary: var(--pale-blue);
   --color-button-bg-secondary: var(--dark-gray-11);
   --color-button-text: var(--white);
+  --color-code-bg: var(--dark-gray-8);
 
   --color-required: var(--pale-light-red);
   --color-error: var(--pale-light-red);
@@ -136,6 +137,12 @@ button,
 
 .button:hover {
   text-decoration: none;
+}
+
+code {
+  background-color: var(--color-code-bg);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
 }
 
 /* Utilities */
@@ -260,4 +267,8 @@ button,
 
 .errors > li {
   margin-inline-start: 1.125rem;
+}
+
+.member-form-question-context {
+  margin-bottom: 0.5rem;
 }
