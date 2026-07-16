@@ -3,6 +3,7 @@
   <nav>
     <ul class="navbar-list">
       <% if (locals.currentUser?.role === USER_ROLES.MEMBER) { %>
+        <li><a href="/admin">Admin access</a></li>
         <li><a href="/log-out">Log out</a></li>
       <% } else if (locals.currentUser) { %>
         <li><a href="/member">Become a member</a></li>

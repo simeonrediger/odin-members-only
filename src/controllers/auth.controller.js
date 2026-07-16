@@ -63,3 +63,7 @@ export async function registerMember(req, res) {
   await db.users.updateRoleById(req.user.id, USER_ROLES.MEMBER);
   res.redirect('/');
 }
+
+export function getAdminForm(req, res) {
+  res.render('admin');
+}

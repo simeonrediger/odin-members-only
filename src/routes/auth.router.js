@@ -6,6 +6,7 @@ import * as authValidation from '../validators/auth.validation.js';
 import {
   ensureAuthenticated,
   ensureUserHasNoRole,
+  ensureUserIsMember,
 } from '../middleware/auth.js';
 
 const authRouter = Router();
@@ -33,5 +34,7 @@ authRouter
   .all(ensureAuthenticated, ensureUserHasNoRole)
   .get(authController.getMemberForm)
   .post(authValidation.validateMember, authController.registerMember);
+
+authRouter.get('/admin', ensureUserIsMember, authController.getAdminForm);
 
 export default authRouter;

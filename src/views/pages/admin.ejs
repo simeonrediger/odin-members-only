@@ -1,0 +1,22 @@
+<% const pageName = 'Admin access'; %>
+<%- include('../partials/layout-start', { pageName }) %>
+<%- include('../partials/header', { pageName }) %>
+
+<form action="/admin" method="post" class="standard-form">
+  <label for="passcode">Passcode</label>
+  <input
+    type="password"
+    name="passcode"
+    id="passcode"
+    required
+  />
+
+  <%- include('../partials/form-errors') %>
+
+  <div class="cancel-submit-buttons">
+    <a href="/" class="cancel-button button">Cancel</a>
+    <button type="submit">Submit passcode</button>
+  </div>
+</form>
+
+<%- include('../partials/layout-end') %>
