@@ -83,7 +83,7 @@ html {
   --color-error: var(--pale-light-red);
 
   --color-message-border: var(--dark-gray-10);
-  --color-message-heading-bg: var(--dark-gray-10);
+  --color-message-header-bg: var(--dark-gray-10);
   --color-message-content-bg: var(--dark-gray-13);
 }
 
@@ -183,11 +183,11 @@ code {
   margin-block: 1rem;
 }
 
-.message-heading {
-  background-color: var(--color-message-heading-bg);
+.message-header {
+  background-color: var(--color-message-header-bg);
 }
 
-.message-heading,
+.message-header,
 .message-content {
   padding: 0.5rem 0.75rem;
 }
