@@ -2,17 +2,17 @@
   <h1><%= pageName %></h1>
   <nav>
     <ul class="navbar-list">
-      <% if (locals.currentUser?.role === USER_ROLES.ADMIN) { %>
-        <li><a href="/log-out">Log out</a></li>
-      <% } else if (locals.currentUser?.role === USER_ROLES.MEMBER) { %>
-        <li><a href="/admin">Admin access</a></li>
-        <li><a href="/log-out">Log out</a></li>
-      <% } else if (locals.currentUser) { %>
-        <li><a href="/member">Member access</a></li>
-        <li><a href="/log-out">Log out</a></li>
-      <% } else { %>
+      <% if (!locals.currentUser) { %>
         <li><a href="/sign-up">Sign up</a></li>
         <li><a href="/log-in">Log in</a></li>
+      <% } else if (!currentUser.role) { %>
+        <li><a href="/member">Member access</a></li>
+      <% } else if (currentUser.role === USER_ROLES.MEMBER) { %>
+        <li><a href="/admin">Admin access</a></li>
+      <% } %>
+
+      <% if (locals.currentUser) { %>
+        <li><a href="/log-out">Log out</a></li>
       <% } %>
     </ul>
   </nav>
