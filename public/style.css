@@ -189,6 +189,13 @@ button,
   font-size: 1.25rem;
 }
 
+.message-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
 .message-time {
   font-family: monospace;
 }

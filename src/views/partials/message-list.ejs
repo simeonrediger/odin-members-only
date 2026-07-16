@@ -5,13 +5,15 @@
         <div class="message">
           <div class="message-heading">
             <h2 class="message-title"><%= message.title %></h2>
-            <p class="message-info">
-              by <%= message.author.display_name ?? message.author.username %>
-              on <span
+            <div class="message-info">
+              <p>
+                by <%= message.author.display_name ?? message.author.username %>
+              </p>
+              <p
                 data-time="<%= message.time.toISOString() %>"
                 class="message-time"
-              ></span>
-            </p>
+              ></p>
+            </div>
           </div>
           <p class="message-content"><%= message.content %></p>
         </div>
