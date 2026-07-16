@@ -68,10 +68,13 @@ export function getAdminForm(req, res) {
   res.render('admin');
 }
 
-export function registerAdmin(req, res) {
+export async function registerAdmin(req, res) {
   const errors = getErrorMessages(req);
 
   if (errors.length > 0) {
     return res.status(400).render('admin', { errors });
   }
+
+  await db.users.updateRoleById(req.user.id, USER_ROLES.ADMIN);
+  res.redirect('/');
 }

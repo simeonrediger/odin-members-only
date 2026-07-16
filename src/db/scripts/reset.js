@@ -19,7 +19,9 @@ async function deleteAll(client) {
 }
 
 async function createUsersTable(client) {
-  const role = `'${USER_ROLES.MEMBER}'`;
+  const roles = Object.values(USER_ROLES)
+    .map(role => `'${role}'`)
+    .join(', ');
 
   await client.query(`
     CREATE TABLE users (
@@ -30,7 +32,7 @@ async function createUsersTable(client) {
       ),
       display_name text,
       password_hash text NOT NULL,
-      role text CHECK (role = ${role})
+      role text CHECK (role IN (${roles}))
     )
   `);
 
