@@ -18,6 +18,7 @@ export const validateUser = [
       `Username must be ${MIN_USERNAME_LENGTH}${RANGE_SEPARATOR}${MAX_USERNAME_LENGTH} characters`,
     )
     .custom(isUniqueUsername),
+
   body('displayName')
     .trim()
     .optional({ values: 'falsy' })
@@ -25,6 +26,7 @@ export const validateUser = [
     .withMessage(
       `Display name must be ${MIN_DISPLAY_NAME_LENGTH}${RANGE_SEPARATOR}${MAX_DISPLAY_NAME_LENGTH} characters`,
     ),
+
   body('password')
     .isStrongPassword({
       minLength: MIN_PASSWORD_LENGTH,
