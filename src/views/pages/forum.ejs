@@ -7,7 +7,7 @@
     <% if (currentUser) { %>
       <a href="message" class="button">+ New message</a>
       <p>
-        Logged in as <%= currentUser.displayName ?? currentUser.username %>.
+        Logged in as <%= currentUser.display_name ?? currentUser.username %>.
       </p>
     <% } else { %>
       <p>You are not logged in.</p>
