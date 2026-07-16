@@ -85,6 +85,8 @@ html {
   --color-message-border: var(--dark-gray-10);
   --color-message-header-bg: var(--dark-gray-10);
   --color-message-content-bg: var(--dark-gray-13);
+  --color-delete-button-bg: transparent;
+  --color-delete-button-text: var(--pale-light-red);
 }
 
 /* Base */
@@ -192,6 +194,13 @@ code {
   padding: 0.5rem 0.75rem;
 }
 
+.message-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
 .message-title {
   font-size: 1.25rem;
 }
@@ -249,6 +258,12 @@ code {
 .cancel-button {
   background-color: var(--color-button-bg-secondary);
   color: var(--color-button-text);
+}
+
+.delete-button {
+  background-color: var(--color-delete-button-bg);
+  color: var(--color-delete-button-text);
+  padding: 0;
 }
 
 .error,
