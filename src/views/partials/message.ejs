@@ -1,10 +1,15 @@
 <div class="message">
   <div class="message-heading">
     <h2 class="message-title"><%= message.title %></h2>
-    <div class="message-info">
-      <p>by <%= message.author.display_name ?? message.author.username %></p>
-      <p data-time="<%= message.time.toISOString() %>" class="message-time"></p>
-    </div>
+    <% if (locals.currentUser?.role) { %>
+      <div class="message-info">
+        <p>by <%= message.author.display_name ?? message.author.username %></p>
+        <p
+          data-time="<%= message.time.toISOString() %>"
+          class="message-time"
+        ></p>
+      </div>
+    <% } %>
   </div>
   <p class="message-content"><%= message.content %></p>
 </div>
