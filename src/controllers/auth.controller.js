@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 
 import { getErrorMessages } from '../validators/validation-utils.js';
 import db from '../db/queries.js';
+import { USER_ROLES } from '../domains/constants.js';
 
 export function getLogin(req, res) {
   res.render('login');
@@ -50,7 +51,7 @@ export function getMemberForm(req, res) {
   res.render('member');
 }
 
-export function registerMember(req, res) {
+export async function registerMember(req, res) {
   const errors = getErrorMessages(req);
 
   if (errors.length > 0) {
@@ -58,4 +59,7 @@ export function registerMember(req, res) {
       .status(400)
       .render('member', { fields: { answer: req.body.answer }, errors });
   }
+
+  await db.users.updateRoleById(req.user.id, USER_ROLES.MEMBER);
+  res.redirect('/');
 }

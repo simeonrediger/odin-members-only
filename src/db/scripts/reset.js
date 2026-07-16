@@ -4,6 +4,7 @@ import {
   MIN_USERNAME_LENGTH,
   MAX_USERNAME_LENGTH,
   MIN_PASSWORD_LENGTH,
+  USER_ROLES,
 } from '../../domains/constants.js';
 
 export default async function reset(client) {
@@ -18,6 +19,8 @@ async function deleteAll(client) {
 }
 
 async function createUsersTable(client) {
+  const role = `'${USER_ROLES.MEMBER}'`;
+
   await client.query(`
     CREATE TABLE users (
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -26,9 +29,10 @@ async function createUsersTable(client) {
         AND length(username) <= ${MAX_USERNAME_LENGTH}
       ),
       display_name text,
-      password_hash text NOT NULL
+      password_hash text NOT NULL,
+      role text CHECK (role = ${role})
     )
-    `);
+  `);
 
   await client.query(`
     CREATE UNIQUE INDEX users_username_lower_idx

@@ -40,3 +40,14 @@ export async function create({ username, displayName, passwordHash }) {
 
   return user;
 }
+
+export async function updateRoleById(id, role) {
+  await pool.query(
+    `
+    UPDATE users
+    SET role = $2
+    WHERE id = $1
+    `,
+    [id, role],
+  );
+}
