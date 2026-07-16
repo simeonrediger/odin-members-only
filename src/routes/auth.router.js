@@ -3,7 +3,7 @@ import passport from 'passport';
 
 import * as authController from '../controllers/auth.controller.js';
 import * as authValidation from '../validators/auth.validation.js';
-import { ensureAuthenticated } from '../middleware/auth.js';
+import { ensureAuthenticated, ensureNoRole } from '../middleware/auth.js';
 
 const authRouter = Router();
 
@@ -27,7 +27,7 @@ authRouter
 
 authRouter
   .route('/member')
-  .all(ensureAuthenticated)
+  .all(ensureAuthenticated, ensureNoRole)
   .get(authController.getMemberForm)
   .post(authValidation.validateMember, authController.registerMember);
 
