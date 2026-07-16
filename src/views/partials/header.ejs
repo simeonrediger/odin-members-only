@@ -2,7 +2,9 @@
   <h1><%= pageName %></h1>
   <nav>
     <ul class="navbar-list">
-      <% if (locals.currentUser?.role === USER_ROLES.MEMBER) { %>
+      <% if (locals.currentUser?.role === USER_ROLES.ADMIN) { %>
+        <li><a href="/log-out">Log out</a></li>
+      <% } else if (locals.currentUser?.role === USER_ROLES.MEMBER) { %>
         <li><a href="/admin">Admin access</a></li>
         <li><a href="/log-out">Log out</a></li>
       <% } else if (locals.currentUser) { %>
