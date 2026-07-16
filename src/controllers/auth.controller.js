@@ -67,3 +67,11 @@ export async function registerMember(req, res) {
 export function getAdminForm(req, res) {
   res.render('admin');
 }
+
+export function registerAdmin(req, res) {
+  const errors = getErrorMessages(req);
+
+  if (errors.length > 0) {
+    return res.status(400).render('admin', { errors });
+  }
+}

@@ -49,6 +49,12 @@ export const validateMember = [
     .custom(giveHintIfClose),
 ];
 
+export const validateAdmin = [
+  body('passcode')
+    .equals(process.env.ADMIN_SECRET)
+    .withMessage('Incorrect passcode'),
+];
+
 async function isUniqueUsername(username) {
   const matchingUsers = await db.users.findByUsername(username);
 

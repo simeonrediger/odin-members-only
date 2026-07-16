@@ -35,6 +35,10 @@ authRouter
   .get(authController.getMemberForm)
   .post(authValidation.validateMember, authController.registerMember);
 
-authRouter.get('/admin', ensureUserIsMember, authController.getAdminForm);
+authRouter
+  .route('/admin')
+  .all(ensureUserIsMember)
+  .get(authController.getAdminForm)
+  .post(authValidation.validateAdmin, authController.registerAdmin);
 
 export default authRouter;
