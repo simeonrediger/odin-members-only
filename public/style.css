@@ -132,7 +132,7 @@ button,
   text-decoration: none;
 }
 
-/* Utility */
+/* Utilities */
 .space-between {
   display: flex;
   justify-content: space-between;
