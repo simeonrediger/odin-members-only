@@ -9,11 +9,12 @@ import {
 export default async function reset(client) {
   await deleteAll(client);
   await createUsersTable(client);
+  await createMessagesTable(client);
 }
 
 async function deleteAll(client) {
   await client.query('DROP INDEX IF EXISTS users_username_lower_idx');
-  await client.query('DROP TABLE IF EXISTS session, users');
+  await client.query('DROP TABLE IF EXISTS session, messages, users');
 }
 
 async function createUsersTable(client) {
@@ -32,5 +33,18 @@ async function createUsersTable(client) {
   await client.query(`
     CREATE UNIQUE INDEX users_username_lower_idx
     ON users (lower(username));
+  `);
+}
+
+async function createMessagesTable(client) {
+  await client.query(`
+    CREATE TABLE messages (
+      id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+      author_id integer NOT NULL
+        REFERENCES users ON DELETE CASCADE,
+      time timestamptz NOT NULL DEFAULT now(),
+      title text NOT NULL,
+      content text NOT NULL
+    )
   `);
 }

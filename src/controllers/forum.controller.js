@@ -1,4 +1,7 @@
+import { matchedData } from 'express-validator';
+
 import { getErrorMessages } from '../validators/validation-utils.js';
+import db from '../db/queries.js';
 
 export function getForum(req, res) {
   res.render('forum');
@@ -17,4 +20,8 @@ export async function createMessage(req, res) {
       .status(400)
       .render('create-message', { fields: { title, content }, errors });
   }
+
+  const { title, content } = matchedData(req, { locations: ['body'] });
+  await db.messages.create({ authorId: req.user.id, title, content: content });
+  res.redirect('/');
 }
