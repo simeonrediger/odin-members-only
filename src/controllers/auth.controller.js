@@ -49,3 +49,13 @@ export async function registerUser(req, res, next) {
 export function getMemberForm(req, res) {
   res.render('member');
 }
+
+export function registerMember(req, res) {
+  const errors = getErrorMessages(req);
+
+  if (errors.length > 0) {
+    return res
+      .status(400)
+      .render('member', { fields: { answer: req.body.answer }, errors });
+  }
+}

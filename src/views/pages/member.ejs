@@ -9,7 +9,14 @@
     <code>0</code>.
   </p>
   <label for="answer">What is the other falsy value?</label>
-  <input type="text" name="answer" id="answer" />
+  <input
+    type="text"
+    name="answer"
+    id="answer"
+    value="<%= locals.fields?.answer %>"
+  />
+
+  <%- include('../partials/form-errors') %>
 
   <div class="cancel-submit-buttons">
     <a href="/" class="cancel-button button">Cancel</a>

@@ -24,6 +24,9 @@ authRouter
   .get(authController.getSignup)
   .post(authValidation.validateUser, authController.registerUser);
 
-authRouter.get('/member', authController.getMemberForm);
+authRouter
+  .route('/member')
+  .get(authController.getMemberForm)
+  .post(authValidation.validateMember, authController.registerMember);
 
 export default authRouter;

@@ -42,6 +42,12 @@ export const validateUser = [
     .withMessage('Passwords must match'),
 ];
 
+export const validateMember = [
+  body('answer')
+    .equals(process.env.MEMBER_SECRET)
+    .withMessage(answer => `'${answer}' is truthy`),
+];
+
 async function isUniqueUsername(username) {
   const matchingUsers = await db.users.findByUsername(username);
 
