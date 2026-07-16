@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'node:path';
+import methodOverride from 'method-override';
 import connectPgSimple from 'connect-pg-simple';
 import session from 'express-session';
 import passport from 'passport';
@@ -17,6 +18,7 @@ app.set('trust proxy', 1);
 app.set('views', path.join(import.meta.dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(import.meta.dirname, '../public')));
 app.use(express.urlencoded({ extended: false }));
 

@@ -23,3 +23,11 @@ export function ensureUserIsMember(req, res, next) {
 
   next();
 }
+
+export function ensureUserIsAdmin(req, res, next) {
+  if (req.user?.role !== USER_ROLES.ADMIN) {
+    return res.redirect('/');
+  }
+
+  next();
+}

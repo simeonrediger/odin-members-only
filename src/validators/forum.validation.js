@@ -1,6 +1,15 @@
-import { body } from 'express-validator';
+import { param, body } from 'express-validator';
 
 import { MAX_TITLE_LENGTH, MAX_MESSAGE_LENGTH } from '../domains/constants.js';
+import db from '../db/queries.js';
+
+export const validateParams = [
+  param('id')
+    .isInt()
+    .withMessage(id => `Message ID must be an integer. Got "${id}"`)
+    .bail()
+    .custom(messageIdExists),
+];
 
 export const validateMessage = [
   body('title')
@@ -17,3 +26,13 @@ export const validateMessage = [
     .isLength({ max: MAX_MESSAGE_LENGTH })
     .withMessage(`Message must not exceed ${MAX_MESSAGE_LENGTH} characters`),
 ];
+
+async function messageIdExists(id) {
+  const message = await db.messages.findById(id);
+
+  if (!message) {
+    throw new Error(`Message ID does not exist: "${id}"`);
+  }
+
+  return true;
+}

@@ -26,3 +26,16 @@ export async function createMessage(req, res) {
   await db.messages.create({ authorId: req.user.id, title, content: content });
   res.redirect('/');
 }
+
+export async function deleteMessage(req, res) {
+  const errors = getErrorMessages(req);
+
+  if (errors.length > 0) {
+    const messages = await db.messages.find({ includeAuthor: true });
+    return res.status(400).render('forum', { errors, messages });
+  }
+
+  const { id } = matchedData(req, { locations: ['params'] });
+  await db.messages.deleteById(id);
+  res.redirect('/');
+}
